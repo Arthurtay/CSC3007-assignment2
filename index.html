@@ -14,8 +14,7 @@
 </style>
 </head>
 <body>
-<button id="bt1">All</button>
-<button id="bt2">2021</button>
+
 <svg id="chart" viewBox="0 0 1500 500 "></svg>
 <script src="https://d3js.org/d3.v6.min.js"></script>
 <script>
@@ -168,13 +167,7 @@ renderChart()
 
 
 
-d3.select("#bt1").on("click", function() {
-    drawChart(crimeData);
-});
 
-d3.select("#bt2").on("click", function() {
-    drawChart(crimeData);
-});
 
 </script>
 </body>
