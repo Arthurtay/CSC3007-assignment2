@@ -53,11 +53,12 @@ tooltip = d3
 
 async function renderChart() {
     let data = await getData();
-    const crimeData = data.slice(0, 5);
+    const crimeData = data.slice(0,5);
     crimeData.sort((a, b) => {
-    return a.value - b.value;
+    return b.value - a.value;
     });
-    data.reverse()
+   // crimeData.slice(0, 5);
+  //  crimeData.reverse()
 
     
     console.log("render chart")
@@ -146,10 +147,10 @@ async function renderChart() {
             .style('visibility', 'visible');
             })
         .on('mousemove', function (event,d) {
-            d3.select(event.currentTarget)
-            tooltip.html()  
-            .style('top', d3.event.pageY - 10 + 'px')
-            .style('left', d3.event.pageX + 10 + 'px');
+           // d3.select(event.currentTarget)
+            tooltip.html(`<div>Category: ${d.level_2} </div><div>Value: ${d.value}</div>`)  
+            .style('top', event.y - 10 + 'px')
+            .style('left', event.x + 10 + 'px');
         })
         .on("mouseout", (event,d,i) => {
                 tooltip.html(``).style('visibility', 'hidden');
